@@ -1,6 +1,5 @@
-# Coded By: Rizky | Aprilia
-# github: https://github.com/hekelpro
-# Team: XIUZCODE | OPEN SOURCE TEAM
+# reCoded By: PROXY HUNTER
+# Team: TukangColong | OPEN SOURCE TEAM
 
 import os
 from requests import *
