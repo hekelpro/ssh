@@ -22,8 +22,8 @@ def Membuat_ssl(id, cookies, user, pw, server):
 	data = {"serverid":id,"username":user,"password":pw}
 	agent = open("ua.txt","r").read()
 	acak = random.choice(agent.split("\n"))
-	head = {"Host":"www.speedssh.com","Connection":"keep-alive","Accept":"*/*","Origin":"https://www.speedssh.com","X-Requested-With":"XMLHttpRequest","User-Agent":acak,"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","Referer":server,"Accept-Encoding":"gzip, deflate","Accept-Language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
-	posd = post("https://www.speedssh.com/create-ssl-30-days.php", headers=head, data=data, cookies={"PHPSESSID":cookies}).text
+	head = {"Host":"www.sshstores.net","Connection":"keep-alive","Accept":"*/*","Origin":"https://sshstores.net","X-Requested-With":"XMLHttpRequest","User-Agent":acak,"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","Referer":server,"Accept-Encoding":"gzip, deflate","Accept-Language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
+	posd = post("https://sshstores.net/ssh-server-30-days.php", headers=head, data=data, cookies={"PHPSESSID":cookies}).text
 	if "Your Account has been successfully created !" in posd:
 		print("  \x1b[1;91m>>> \x1b[1;97mACCOUNT \x1b[1;92mBERHASIL \x1b[1;97mDIBUAT")
 		print("  \x1b[1;91m> \x1b[1;97mUSERNAME \x1b[1;91m:\x1b[1;92m "+re.search("Username\s\s:\s(.*?)<br>", str(posd)).group(1))
@@ -45,7 +45,7 @@ def Membuat_ssh(id, cookies, user, pw, server):
 	agent = open("ua.txt","r").read()
 	acak = random.choice(agent.split("\n"))
 	head = {"Host":"www.speedssh.com","Connection":"keep-alive","Accept":"*/*","Origin":"https://www.speedssh.com","X-Requested-With":"XMLHttpRequest","User-Agent":acak,"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","Referer":server,"Accept-Encoding":"gzip, deflate","Accept-Language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
-	posd = post("https://www.speedssh.com/create-ssh-30-days.php", headers=head, data=data, cookies={"PHPSESSID":cookies}).text
+	posd = post("https://sshstores.net/ssh-server-30-days.php", headers=head, data=data, cookies={"PHPSESSID":cookies}).text
 	if "Your Account has been successfully created !" in posd:
 		print("  \x1b[1;91m>>> \x1b[1;97mACCOUNT \x1b[1;92mBERHASIL \x1b[1;97mDIBUAT")
 		print("  \x1b[1;91m> \x1b[1;97mUSERNAME \x1b[1;91m:\x1b[1;92m "+re.search("Username\s\s:\s(.*?)<br>", str(posd)).group(1))
@@ -68,7 +68,7 @@ class SSL_TLS:
 		self.link = []
 
 	def Chek(self):
-		self.cek = par(get("https://speedssh.com/ssl-server-30-days").text, "html.parser")
+		self.cek = par(get("https://sshstores.net/ssh-server-30-days").text, "html.parser")
 		for one in self.cek.find_all("div", attrs={"class":"plan-hp"}):
 			for two in one.find_all("h1"):
 				self._nom += 1
@@ -104,7 +104,7 @@ class SSH:
 		self.link = []
 
 	def Chek(self):
-		self.cek = par(get("https://speedssh.com/ssh-server-30-days").text, "html.parser")
+		self.cek = par(get("https://sshstores.net/ssh-server-30-days").text, "html.parser")
 		for one in self.cek.find_all("div", attrs={"class":"plan-hp"}):
 			reg = re.findall("<h1>(.*?)</h1>", str(one))
 			for judul in reg:
